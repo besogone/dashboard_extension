@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Personal Dashboard</title>
+    </head>
+    <body>
+        <div id="crypto-menu" class="hidden">
+            <button id="crypto-menu-close-btn" onclick="toggleHidden('crypto-menu')"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <p>Введите название криптовалюты:</p>
+            <div id="search-container">
+                <input type="text" id="crypto-search" placeholder="dogecoin..." />
+                <button id="crypto-search-btn" onclick="searchCrypto()"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div id="crypto-search-res">
+                <div id="crypto-search-top-res"></div>
+            </div>
+        </div>    
+        <main>
+            <div class="top">
+                <div id="crypto">
+                </div>
+                <div id="weather"></div>
+            </div>
+            
+            <h1 id="time" class="time"></h1>
+            <p id="author"></p>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>

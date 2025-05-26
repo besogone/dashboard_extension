@@ -1,0 +1,170 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    /* pointer-events: none;
+    user-select: none; */
+}    
+
+body {
+    margin: 0;
+    background: no-repeat center center fixed; 
+    background-size: cover;
+    background-size: cover;
+}
+
+body, #set-crypto {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 20px #242424;
+}
+
+main {
+    padding: 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1.time {
+    text-align: center;
+    font-size: 4rem;
+}
+
+div#crypto {
+    font-size: 1.3rem;
+}
+
+div#crypto > p {
+    margin: 0;
+}
+
+#set-crypto {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+div#crypto-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+div#crypto-top > span, #crypto-search-top-res > span {
+    margin-left: 10px;
+}
+
+div#weather {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-self: flex-start;
+    margin-top: -20px;
+}
+
+div#weather > img {
+    width: 70px;
+}
+
+p.weather-city {
+    width: 100%;
+    text-align: right;
+    margin: 0;
+    margin-top: -10px;
+}
+
+p.weather-temp {
+    margin: 0;
+    font-size: 1.7rem;
+    margin-left: -10px;
+}
+
+#crypto-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    padding: 25px 25px 0 25px;
+    height: fit-content;
+    width: 400px;
+    background: rgb(211, 211, 211, 0.2);
+    backdrop-filter: blur(6px);
+    font-size: 1.3rem;
+}
+
+#crypto-menu > p {
+    margin-top: 0;
+}
+
+#search-container {
+    display: flex;
+    height: 40px;
+
+}
+
+#crypto-menu-close-btn {
+    align-self: flex-end;
+    border: none;
+    border-radius: 0;
+    background-color: rgb(253, 83, 120);
+
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#crypto-search {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    font-size: 1.3rem;
+}
+
+#crypto-search-res {
+    display: flex;
+    flex-direction: column;
+}
+
+#crypto-search-res > p {
+    margin: 0;
+}
+
+#crypto-search-btn {
+    height: 100%;
+    width: 15%;
+}
+
+#crypto-search-btn, #crypto-thumbtrack-btn {
+    border: none;
+    border-radius: 0;
+    background-color: rgb(185, 113, 252);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#crypto-search-top-res {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+#crypto-thumbtrack-btn {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 25px;
+    align-self: flex-end;
+}
+
+.hidden {
+    display: none !important;
+}
