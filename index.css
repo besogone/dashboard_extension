@@ -54,6 +54,7 @@ div#crypto-top {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    text-shadow: 0 0 5px #8706ff;
 }
 
 div#crypto-top > span, #crypto-search-top-res > span {
@@ -146,7 +147,7 @@ p.weather-temp {
 #crypto-search-btn, #crypto-thumbtrack-btn {
     border: none;
     border-radius: 0;
-    background-color: rgb(185, 113, 252);
+    background-color: #b971fc;
     font-size: 1.3rem;
     cursor: pointer;
 }

@@ -1,5 +1,9 @@
 const searchEl = document.getElementById("crypto-search")
 
+// if no pinned cryptocurrency saved to localstorage, 'dogecoin' is shown by default
+const shownCrypto = localStorage.getItem("pinnedCrypto") ? localStorage.getItem("pinnedCrypto").toLowerCase() : "dogecoin" 
+
+// toggles 'hidden' class
 function toggleHidden(el) {
     document.getElementById(el).classList.toggle("hidden")
 }
@@ -33,6 +37,7 @@ function searchCrypto() {
     .catch(err => console.error(err))
 }
 
+// setting up background
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
     .then(res => res.json())
     .then(data => {
@@ -46,7 +51,8 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 		document.getElementById("author").textContent = `Image By: Dodi Achmad`
     })
 
-fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+// setting up cryptocurrency info
+fetch(`https://api.coingecko.com/api/v3/coins/${shownCrypto}`)
     .then(res => {
         if (!res.ok) {
             throw Error("Something went wrong")
@@ -56,6 +62,7 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     .then(data => thumbtrackCrypto(data))
     .catch(err => console.error(err))
 
+// pins crypto info on top left corner
 function thumbtrackCrypto(data) {
     document.getElementById("crypto").innerHTML = `
         <button id="set-crypto" onclick="toggleHidden('crypto-menu')">
@@ -71,6 +78,7 @@ function thumbtrackCrypto(data) {
         <p>👆: $${data.market_data.high_24h.usd}</p>
         <p>👇: $${data.market_data.low_24h.usd}</p>
     `
+    localStorage.setItem("pinnedCrypto", data.name)
 }
 
 function getCurrentTime() {
