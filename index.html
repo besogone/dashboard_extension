@@ -7,11 +7,11 @@
     </head>
     <body>
         <div id="crypto-menu" class="hidden">
-            <button id="crypto-menu-close-btn" onclick="toggleHidden('crypto-menu')"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button id="crypto-menu-close-btn"><i class="fa fa-times" aria-hidden="true"></i></button>
             <p>Введите название криптовалюты:</p>
             <div id="search-container">
                 <input type="text" id="crypto-search" placeholder="dogecoin..." />
-                <button id="crypto-search-btn" onclick="searchCrypto()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button id="crypto-search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
             <div id="crypto-search-res">
                 <div id="crypto-search-top-res"></div>
@@ -20,6 +20,10 @@
         <main>
             <div class="top">
                 <div id="crypto">
+                    <button id="set-crypto-btn">
+                        <div id="crypto-top"></div>
+                    </button>
+                    <div id="crypto-bottom"></div>
                 </div>
                 <div id="weather"></div>
             </div>

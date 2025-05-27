@@ -1,5 +1,9 @@
 const searchEl = document.getElementById("crypto-search")
 
+document.getElementById("crypto-menu-close-btn").addEventListener("click", () => toggleHidden('crypto-menu'))
+document.getElementById("crypto-search-btn").addEventListener("click", () => searchCrypto())
+document.getElementById("set-crypto-btn").addEventListener("click", () => toggleHidden('crypto-menu'))
+
 // if no pinned cryptocurrency saved to localstorage, 'dogecoin' is shown by default
 const shownCrypto = localStorage.getItem("pinnedCrypto") ? localStorage.getItem("pinnedCrypto").toLowerCase() : "dogecoin" 
 
@@ -32,7 +36,6 @@ function searchCrypto() {
             <button id="crypto-thumbtrack-btn"><i class="fa fa-thumb-tack" aria-hidden="true"></i></button>
         `
         document.getElementById("crypto-thumbtrack-btn").addEventListener("click", () => thumbtrackCrypto(data))
-        console.log(data)
     })
     .catch(err => console.error(err))
 }
@@ -64,16 +67,11 @@ fetch(`https://api.coingecko.com/api/v3/coins/${shownCrypto}`)
 
 // pins crypto info on top left corner
 function thumbtrackCrypto(data) {
-    document.getElementById("crypto").innerHTML = `
-        <button id="set-crypto" onclick="toggleHidden('crypto-menu')">
-            <div id="crypto-top"></div>
-        </button>
-    `
     document.getElementById("crypto-top").innerHTML = `
         <img src=${data.image.small} />
         <span>${data.name}</span>
     `
-    document.getElementById("crypto").innerHTML += `
+    document.getElementById("crypto-bottom").innerHTML = `
         <p>🎯: $${data.market_data.current_price.usd}</p>
         <p>👆: $${data.market_data.high_24h.usd}</p>
         <p>👇: $${data.market_data.low_24h.usd}</p>
@@ -97,7 +95,6 @@ navigator.geolocation.getCurrentPosition(position => {
             return res.json()
         })
         .then(data => {
-            console.log(data)
             const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
             document.getElementById("weather").innerHTML = `
                 <img src=${iconUrl} />
